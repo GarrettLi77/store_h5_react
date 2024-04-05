@@ -28,19 +28,17 @@ const LoginPage: React.FC = () => {
 
             localStorage.setItem(tokenKey, JSON.stringify(res.data));
 
+            Toast.show(res.message)
+
             history.push('/home')
 
-        } catch (err) {
-            Toast.show({
-                content: '请求失败' + (err as Error).message
-            })
-        }
+        } catch (error: any) {}
     };
 
     return (
         <>
             <div>
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 30}}>
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 30}}>
                     <Image
                         src={logo}
                         width={'80%'}

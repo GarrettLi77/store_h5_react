@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {Avatar, Divider, List} from "antd-mobile";
+import {Avatar, Dialog, Divider, List} from "antd-mobile";
 import {bgColor, tokenKey} from "@/utils/constants";
-import {history} from "@@/core/history";
 import { SetOutline, UnorderedListOutline, UserOutline} from "antd-mobile-icons";
 import {HomeOutlined, LogoutOutlined, PayCircleOutlined} from "@ant-design/icons";
+import {history} from 'umi';
 
 interface UserData {
     username: string,
@@ -54,7 +54,15 @@ const My: React.FC = () => {
                 <List.Item prefix={<SetOutline />} onClick={() => {}}>
                     修改密码
                 </List.Item>
-                <List.Item prefix={<LogoutOutlined />} onClick={() => {}}>
+                <List.Item prefix={<LogoutOutlined />} onClick={() => {
+                    Dialog.confirm({
+                        content: '是否退出？',
+                        onConfirm: () => {
+                            localStorage.clear()
+                            history.push('/Login')
+                        },
+                    })
+                }}>
                     退出登录
                 </List.Item>
             </List>

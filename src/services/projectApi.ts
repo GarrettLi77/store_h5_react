@@ -1,9 +1,23 @@
 import {request} from "@@/exports";
 
 export const login = async (params: any) => {
-    return request('api/v1/login.json', {
+    return request('login.json', {
         method: 'POST', data: {
             ...params
         },
+    })
+}
+
+export const createShop = async (params: any, userId: number) => {
+    return request(`users/${userId}/shops.json`, {
+        method: 'POST', data: {
+            ...params
+        },
+    })
+}
+
+export const allShops = async () => {
+    return request('all_shops.json', {
+        method: 'GET'
     })
 }

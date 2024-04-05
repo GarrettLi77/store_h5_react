@@ -2,6 +2,7 @@ import React from "react";
 import {Card, Space} from "antd-mobile";
 import {primaryColor} from "@/utils/constants";
 import {HomeOutlined, PayCircleOutlined, ProductOutlined, RightOutlined} from "@ant-design/icons";
+import {history} from "umi";
 
 const Board: React.FC = () => {
     return (
@@ -15,6 +16,7 @@ const Board: React.FC = () => {
                     title='店铺列表'
                     headerStyle={{color: primaryColor}}
                     onClick={() => {
+                        history.push('/AllShopList')
                     }}
                     extra={<RightOutlined style={{fontSize: 16}}/>}
                 >
@@ -30,6 +32,7 @@ const Board: React.FC = () => {
                     title='创建店铺'
                     headerStyle={{color: primaryColor}}
                     onClick={() => {
+                        history.push('/CreateShop')
                     }}
                     extra={<RightOutlined style={{fontSize: 16}}/>}
                 >
