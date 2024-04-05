@@ -1,15 +1,21 @@
-import yayJpg from '../assets/yay.jpg';
+import React, {useEffect} from "react";
+import { tokenKey } from "@/utils/constants";
+import { history } from 'umi';
 
-export default function HomePage() {
-  return (
-    <div>
-      <h2>Yay! Welcome to umi!</h2>
-      <p>
-        <img src={yayJpg} width="388" />
-      </p>
-      <p>
-        To get started, edit <code>pages/index.tsx</code> and save to reload.
-      </p>
-    </div>
-  );
+const Index:React.FC = () => {
+
+    useEffect(() => {
+        const user:string | null = localStorage.getItem(tokenKey);
+        if (user) {
+            history.push('/Home');
+        } else {
+            history.push('/Login');
+        }
+    }, []);
+
+    return (
+        <></>
+    )
 }
+
+export default  Index;
