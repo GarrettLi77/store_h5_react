@@ -21,3 +21,10 @@ export const allShops = async () => {
         method: 'GET'
     })
 }
+
+export const userShops = async (userId: number) => {
+    console.log('userId', userId)
+    return request(`users/${userId}/shops.json`, {
+        method: 'GET'
+    })
+}

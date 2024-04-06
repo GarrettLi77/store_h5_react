@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, Space} from "antd-mobile";
 import {primaryColor} from "@/utils/constants";
-import {HomeOutlined, PayCircleOutlined, ProductOutlined, RightOutlined} from "@ant-design/icons";
+import {PayCircleOutlined, ProductOutlined, RightOutlined, ShopOutlined} from "@ant-design/icons";
 import {history} from "umi";
 
 const Board: React.FC = () => {
@@ -21,7 +21,7 @@ const Board: React.FC = () => {
                     extra={<RightOutlined style={{fontSize: 16}}/>}
                 >
                     <Space style={{display: 'flex', alignContent: 'center'}}>
-                        <HomeOutlined style={{fontSize: 18}}/>
+                        <ShopOutlined style={{fontSize: 18}}/>
                         <div>好久不见！快去看看有什么新鲜东西吧！</div>
                     </Space>
                 </Card>

@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "antd-mobile": "^5.35.0",
+    "lodash": "^4.17.21",
     "umi": "^4.1.8"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.0",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@umijs/plugins": "^4.1.8",

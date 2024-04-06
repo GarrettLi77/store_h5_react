@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {Avatar, Dialog, Divider, List} from "antd-mobile";
+import {Avatar, Dialog, List} from "antd-mobile";
 import {bgColor, tokenKey} from "@/utils/constants";
 import { SetOutline, UnorderedListOutline, UserOutline} from "antd-mobile-icons";
-import {HomeOutlined, LogoutOutlined, PayCircleOutlined} from "@ant-design/icons";
+import {LogoutOutlined, PayCircleOutlined, ShopOutlined} from "@ant-design/icons";
 import {history} from 'umi';
 
 interface UserData {
@@ -39,7 +39,9 @@ const My: React.FC = () => {
             </List>
 
             <List header='设置'>
-                <List.Item prefix={<HomeOutlined />} onClick={() => {}}>
+                <List.Item prefix={<ShopOutlined />} onClick={() => {
+                    history.push('/MyShops')
+                }}>
                     我的店铺
                 </List.Item>
                 <List.Item prefix={<UserOutline />} onClick={() => {}}>

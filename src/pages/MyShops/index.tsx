@@ -1,26 +1,32 @@
 import React, {useEffect, useState} from "react";
-import {allShops} from "@/services/projectApi";
+import {userShops} from "@/services/projectApi";
+import {tokenKey} from "@/utils/constants";
 import {Button, Card, Toast} from "antd-mobile";
-import {RightOutline} from "antd-mobile-icons";
-import styles from './index.less'
-import {FieldTimeOutlined, HomeOutlined, PhoneOutlined, ShopOutlined} from "@ant-design/icons";
-import SNavbar from "@/components/navbar";
 import {Shop} from '@/model/projectModel'
+import SNavbar from "@/components/navbar";
+import {FieldTimeOutlined, HomeOutlined, PhoneOutlined, ShopOutlined} from "@ant-design/icons";
+import {RightOutline} from "antd-mobile-icons";
+import styles from "@/pages/AllShopList/index.less";
 
-const AllShopList: React.FC = () => {
-
-    const [allShopList, setAllShopList] = useState<Shop[]>([])
+const MyShops: React.FC = () => {
+    const [shopList, setShopList] = useState<Shop[]>([])
 
     const fetchData = async () => {
         try {
-            const res = await allShops()
+            const user = localStorage.getItem(tokenKey)
+            if (user) {
+                const {user_id} = JSON.parse(user)
 
-            if (!res.success) {
-                Toast.show(res.message)
-                return
+                const res = await userShops(user_id);
+
+                if (!res.success) {
+                    Toast.show(res.message)
+                    return
+                }
+
+                setShopList(res.data.data)
             }
-            setAllShopList(res.data?.data)
-        } catch (error) {
+        } catch (err) {
         }
     }
 
@@ -41,7 +47,7 @@ const AllShopList: React.FC = () => {
             <SNavbar title='店铺列表' showRight onTapSearchRight={() => {
             }}/>
             <div style={{height: 12}}></div>
-            {allShopList?.map(item => (
+            {shopList?.map(item => (
                 <div key={item?.id} style={{marginBottom: 12, padding: '0px 12px'}}>
                     <Card
                         title={
@@ -93,4 +99,4 @@ const AllShopList: React.FC = () => {
     )
 }
 
-export default AllShopList;
+export default MyShops;
