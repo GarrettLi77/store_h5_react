@@ -1,23 +1,30 @@
 import {history} from "@@/core/history";
 import {NavBar} from "antd-mobile";
 import React from "react";
-import {SearchOutlined} from "@ant-design/icons";
+import {PlusOutlined, SearchOutlined} from "@ant-design/icons";
 
 interface Props {
     title: String,
     onTapSearchRight?: () => void,
-    showRight?: boolean,
+    showSearch?: boolean,
+    onTapAddRight?: () => void,
+    showAdd?: boolean,
 }
 
 const SNavbar: React.FC<Props> = (props) => {
 
     const right = () => {
-        if (props.showRight && props.onTapSearchRight) {
+        if (props.showSearch || props.showAdd) {
             return (
                 <>
-                    <SearchOutlined style={{ fontSize: 18 }} onClick={props.onTapSearchRight} />
+                    {
+                        props.showSearch && <SearchOutlined style={{ fontSize: 18 }} onClick={props.onTapSearchRight} />
+                    }
+                    {
+                        props.showAdd && <PlusOutlined style={{ fontSize: 18, marginLeft: 6 }} onClick={props.onTapAddRight} />
+                    }
                 </>
-            );
+            )
         } else {
             return null;
         }

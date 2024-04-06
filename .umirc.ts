@@ -10,6 +10,8 @@ export default defineConfig({
     { path: "/CreateShop", component: "CreateShop", },
     { path: "/AllShopList", component: "AllShopList", },
     { path: "/MyShops", component: "MyShops", },
+    { path: "/CreateCategory", component: "CreateCategory", },
+    { path: "/AllCategoryList", component: "AllCategoryList", },
     { path: '/*', component: '404' },
   ],
   npmClient: 'npm',

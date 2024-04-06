@@ -28,3 +28,17 @@ export const userShops = async (userId: number) => {
         method: 'GET'
     })
 }
+
+export const createCategory = async (params: any, userId: number) => {
+    return request(`categories.json`, {
+        method: 'POST', data: {
+            ...params
+        },
+    })
+}
+
+export const allCategories = async () => {
+    return request('all_categories.json', {
+        method: 'GET'
+    })
+}

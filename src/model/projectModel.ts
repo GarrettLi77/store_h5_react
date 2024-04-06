@@ -7,3 +7,11 @@ export interface Shop {
     business_hours: string,
     create_name: string,
 }
+
+export interface Category {
+    id: number,
+    name: string,
+    description: string,
+    shop_name: string,
+    created_at: string,
+}

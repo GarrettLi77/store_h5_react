@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Avatar, Dialog, List} from "antd-mobile";
 import {bgColor, tokenKey} from "@/utils/constants";
 import { SetOutline, UnorderedListOutline, UserOutline} from "antd-mobile-icons";
-import {LogoutOutlined, PayCircleOutlined, ShopOutlined} from "@ant-design/icons";
+import {LogoutOutlined, PayCircleOutlined, ShopOutlined, TagOutlined} from "@ant-design/icons";
 import {history} from 'umi';
 
 interface UserData {
@@ -44,6 +44,11 @@ const My: React.FC = () => {
                 }}>
                     我的店铺
                 </List.Item>
+                <List.Item prefix={<TagOutlined />} onClick={() => {
+                    history.push('/AllCategoryList')
+                }}>
+                    分类管理
+                </List.Item>
                 <List.Item prefix={<UserOutline />} onClick={() => {}}>
                     我的信息
                 </List.Item>
@@ -68,7 +73,6 @@ const My: React.FC = () => {
                     退出登录
                 </List.Item>
             </List>
-
         </div>
     )
 }

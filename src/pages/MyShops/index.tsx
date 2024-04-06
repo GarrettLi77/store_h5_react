@@ -44,7 +44,7 @@ const MyShops: React.FC = () => {
 
     return (
         <div>
-            <SNavbar title='店铺列表' showRight onTapSearchRight={() => {
+            <SNavbar title='我的店铺' showSearch onTapSearchRight={() => {
             }}/>
             <div style={{height: 12}}></div>
             {shopList?.map(item => (
@@ -88,7 +88,7 @@ const MyShops: React.FC = () => {
                                     Toast.show('点击了底部按钮')
                                 }}
                             >
-                                去逛逛
+                                管理店铺
                             </Button>
                         </div>
                     </Card>

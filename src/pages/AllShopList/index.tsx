@@ -38,7 +38,7 @@ const AllShopList: React.FC = () => {
 
     return (
         <div>
-            <SNavbar title='店铺列表' showRight onTapSearchRight={() => {
+            <SNavbar title='店铺列表' showSearch onTapSearchRight={() => {
             }}/>
             <div style={{height: 12}}></div>
             {allShopList?.map(item => (
